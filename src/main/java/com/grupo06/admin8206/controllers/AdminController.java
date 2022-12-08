@@ -17,7 +17,7 @@ public class AdminController {
 
     //NAVEGACION
     //pagina principal de la pagina
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index(){
         return "index";
     }

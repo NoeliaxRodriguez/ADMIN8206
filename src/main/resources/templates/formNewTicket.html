@@ -21,7 +21,7 @@
         <label for="nombreEvento">Seleccione el nombre del evento</label>
         <select name="eventosDisponibles" id="nombreEvento" th:field="*{eventoBean}">
             <tr th:each="evento : ${eventList}">
-                <option value="nombre del evento"><td th:text="${evento.nombre}"></td></option>
+                <option value="nombre del evento"><td th:text="${evento.id_evento}+'-'+${evento.nombre}"></td></option>
         </select>
 
         <br>

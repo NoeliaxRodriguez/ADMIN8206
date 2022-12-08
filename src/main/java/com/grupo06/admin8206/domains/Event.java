@@ -71,14 +71,8 @@ public class Event implements Serializable {
         return this.fecha;
     }
 
-    public void setFecha(String fecha) {
-        Date date1 = null;
-        try {
-            date1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(fecha);
-        }catch (Exception e){
-            System.out.println("no hay fecha");
-        }
-        this.fecha = date1;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public String getNombre() { return this.nombre; }
