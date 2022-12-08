@@ -52,8 +52,8 @@
         <td th:text="${evento.ciudad}"></td>
         <td th:text="${evento.sala}"></td>
         <td th:text="${evento.imagen}"></td>
-        <td> <a th:href="@{/showFormForUpdate/{userName}(userName=${usuario.userName})}"class="btn btn-primary">Update</a>
-            <form th:action="@{/delete-user/{userName}(userName=${usuario.userName})}" method="post"><button type="submit" class="btn btn-danger">Delete</button>
+        <td> <a th:href="@{/showFormForUpdateEvent/{id}(id=${evento.id_evento})}" class="btn btn-primary">Update</a>
+            <form th:action="@{/delete-event/{id}(id=${evento.id_evento})}" method="post"><button type="submit" class="btn btn-danger">Delete</button>
             </form>
         </td>
     </tr>

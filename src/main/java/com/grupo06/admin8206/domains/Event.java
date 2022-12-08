@@ -1,10 +1,11 @@
 package com.grupo06.admin8206.domains;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Event implements Serializable {
@@ -27,7 +28,6 @@ public class Event implements Serializable {
     private String ciudad;
 
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
-
     private Date fecha;
 
     private String nombre;
@@ -71,8 +71,14 @@ public class Event implements Serializable {
         return this.fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFecha(String fecha) {
+        Date date1 = null;
+        try {
+            date1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(fecha);
+        }catch (Exception e){
+            System.out.println("no hay fecha");
+        }
+        this.fecha = date1;
     }
 
     public String getNombre() { return this.nombre; }
