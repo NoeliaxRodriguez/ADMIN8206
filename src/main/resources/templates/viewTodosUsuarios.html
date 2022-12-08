@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Usuarios de la aplicacion</title>
+
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+
+</head>
+
+<body>
+<h2>Tabla con los usuarios</h2>
+
+<a th:href="@{/showFormUser}" class="btn btn-primary btn-sm mb-3">Añadir usuario</a>
+
+<table border="1" class = "table table-striped table-responsive-md">
+    <thead>
+    <tr>
+        <th>
+            <a>Usuario</a>
+        </th>
+        <th>
+            <a>Nombre</a>
+        </th>
+        <th>
+            <a>Primer apellido</a>
+        </th>
+        <th>
+            <a>Segundo apellido</a>
+        </th>
+        <th>
+            <a>Contraseña</a>
+        </th>
+        <th>
+            <a>Correo electronico</a>
+        </th>
+        <th>
+            <a>Telefono</a>
+        </th>
+        <th>
+            <a>Admin</a>
+        </th>
+        <th> Actions </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="usuario : ${userList}">
+        <td th:text="${usuario.userName}"></td>
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.apellido1}"></td>
+        <td th:text="${usuario.apellido2}"></td>
+        <td th:text="${usuario.password}"></td>
+        <td th:text="${usuario.correo}"></td>
+        <td th:text="${usuario.telefono}"></td>
+        <td th:text="${usuario.admin}"></td>
+        <td> <a th:href="@{/showFormForUpdate/{userName}(userName=${usuario.userName})}"class="btn btn-primary">Update</a>
+            <form th:action="@{/delete-user/{userName}(userName=${usuario.userName})}" method="post"><button type="submit" class="btn btn-danger">Delete</button>
+             </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de la aplicacion</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+
+<body>
+<h2>Tabla con los eventos</h2>
+
+<a th:href="@{/showFormEvent}" class="btn btn-primary btn-sm mb-3"> Añadir evento </a>
+
+<table border="1" class = "table table-striped table-responsive-md">
+    <thead>
+    <tr>
+        <th>
+            <a>Id</a>
+        </th>
+        <th>
+            <a>Nombre</a>
+        </th>
+        <th>
+            <a>Categoria</a>
+        </th>
+        <th>
+            <a>Fecha</a>
+        </th>
+        <th>
+            <a>Ciudad</a>
+        </th>
+        <th>
+            <a>Sala</a>
+        </th>
+        <th>
+            <a>Imagen</a>
+        </th>
+        <th> Actions </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="evento : ${eventList}">
+        <td th:text="${evento.id_evento}"></td>
+        <td th:text="${evento.nombre}"></td>
+        <td th:text="${evento.categoria}"></td>
+        <td th:text="${evento.fecha}"></td>
+        <td th:text="${evento.ciudad}"></td>
+        <td th:text="${evento.sala}"></td>
+        <td th:text="${evento.imagen}"></td>
+        <td> <a th:href="@{/showFormForUpdate/{userName}(userName=${usuario.userName})}"class="btn btn-primary">Update</a>
+            <form th:action="@{/delete-user/{userName}(userName=${usuario.userName})}" method="post"><button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
