@@ -11,12 +11,12 @@
 
 </head>
 
-<body>
+<body style="margin-left: 5%; margin-right: 5%; margin-top: 15px">
 <h2>Tabla con los tickets</h2>
 
 <a th:href="@{/showFormTicket}" class="btn btn-primary btn-sm mb-3">Añadir entrada</a>
 
-<table border="1" class = "table table-striped table-responsive-md">
+<table style="border: 1px" class = "table table-striped table-responsive-md">
     <thead>
     <tr>
         <th>
@@ -46,13 +46,14 @@
         <td th:text="${ticket.precio}"></td>
         <td th:text="${ticket.usuarioBean.userName}"></td>
 
-        <td> <a th:href="@{/#}"class="btn btn-primary">Update</a>
-            <form th:action="@{#}" method="post"><button type="submit" class="btn btn-danger">Delete</button>
+        <td> <a th:href="@{/showFormForUpdateTicket/{ref}(ref=${ticket.numReferencia})}"class="btn btn-primary">Update</a>
+            <form th:action="@{/delete-ticket/{ref}(ref=${ticket.numReferencia})}" method="post"><button type="submit" class="btn btn-danger">Delete</button>
              </form>
         </td>
     </tr>
     </tbody>
 </table>
+<a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Atrás</a>
 
 </body>
 </html>

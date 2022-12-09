@@ -1,6 +1,7 @@
 package com.grupo06.admin8206.domains;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -27,7 +28,7 @@ public class Event implements Serializable {
 
     private String ciudad;
 
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     private String nombre;
